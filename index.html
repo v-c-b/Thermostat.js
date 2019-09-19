@@ -5,7 +5,7 @@
   </head>
   <body>
     <section>
-      <h1 id="temperature"></h1>
+      <h1> Thermostat set to: </h1><h1 id="temperature"></h1>
       <p>
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
@@ -17,6 +17,16 @@
       </p>
     </section>
   </body>
+
+  <section>
+    <h1>Current temperature: <span id="current-temperature">20</span></h1>
+    <select id="current-city">
+      <option value="2643741">London</option>
+      <option value="5128638">New York</option>
+      <option value="2988506">Paris</option>
+      <option value="1850147">Tokyo</option>
+    </select>
+  </section>
 </html>
 
 <script src="src/thermostat.js"></script>
@@ -24,12 +34,16 @@
 <script>
 $( document ).ready(function() {
   t = new Thermostat();
+  $.get('http://api.openweathermap.org/data/2.5/weather?id=' + '2643741' + '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
+    $('#current-temperature').text(data.main.temp);
+  });
   update = function() {
     t.updateUsage();
     $("#temperature").text(t.temperature);
     $("#energy-usage").text(t.energyUsage);
-  };
+    $("#energy-usage").text(t.energyUsage);
 
+  };
   $("#temperature").text(t.temperature);
   $("#energy-usage").text(t.energyUsage);
 
@@ -58,13 +72,3 @@ $( document ).ready(function() {
   })
 })
 </script>
-
-<section>
-  <h1>Current temperature: <span id="current-temperature">20</span></h1>
-  <select id="current-city">
-    <option value="2643741">London</option>
-    <option value="5128638">New York</option>
-    <option value="2988506">Paris</option>
-    <option value="1850147">Tokyo</option>
-  </select>
-</section>
