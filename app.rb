@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/temp.rb'
 
 class Server < Sinatra::Base
   enable :sessions

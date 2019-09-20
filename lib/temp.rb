@@ -9,6 +9,7 @@ class Temp
   end
 
   def self.get_temp
+    return 20 if @temp == nil
     return @temp
   end
 end

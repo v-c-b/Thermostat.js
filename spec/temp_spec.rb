@@ -9,7 +9,4 @@ describe Temp do
     Temp.set_temp
     expect(Temp.get_temp).to eq(20)
   end
-  it 'has default of 20 temp' do
-    expect(Temp.get_temp).to eq(20)
-  end
 end
