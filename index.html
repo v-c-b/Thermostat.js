@@ -45,7 +45,7 @@
       $("#temperature").text(t.temperature);
       $("#energy-usage").text(t.energyUsage);
       $("#energy-usage").text(t.energyUsage);
-      $.post('http://127.0.0.1:9292/temperature/g' + t.temperature, function(data) {
+      $.post('http://127.0.0.1:9292/temperature/' + t.temperature, function(data) {
         $('#temperature').text(data);
       });
     };

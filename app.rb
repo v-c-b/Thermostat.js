@@ -5,14 +5,17 @@ class Server < Sinatra::Base
   enable :sessions
 
   get '/temperature/:temp' do
+    headers 'Access-Control-Allow-Origin' => '*'
     Temp.set_temp(params[:temp])
   end
 
   post '/temperature/:temp' do
+    headers 'Access-Control-Allow-Origin' => '*'
     Temp.set_temp(params[:temp])
   end
 
   get '/temperature' do
+    headers 'Access-Control-Allow-Origin' => '*'
     @temp = Temp.get_temp
     erb :temp
   end
