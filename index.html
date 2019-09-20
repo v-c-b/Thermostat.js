@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Thermostat</title>
-  </head>
-  <body>
-    <section>
-      <h1> Thermostat set to: </h1><h1 id="temperature"></h1>
-      <p>
-        <button id="temperature-up">+</button>
-        <button id="temperature-down">-</button>
-        <button id="temperature-reset">reset</button>
-        power saving mode is <span id="power-saving-status">true</span>
-        <button id="powersaving-switch">PSM switch</button>
-        Energy consumption is <span id="energy-usage">test</span>
-        <!-- <button id="powersaving-off">PSM off</button> -->
-      </p>
-    </section>
-  </body>
-
+<head>
+  <title>Thermostat</title>
+</head>
+<body>
   <section>
-    <h1>Current temperature: <span id="current-temperature">20</span></h1>
-    <select id="current-city">
-      <option value="2643741">London</option>
-      <option value="5128638">New York</option>
-      <option value="2988506">Paris</option>
-      <option value="1850147">Tokyo</option>
-    </select>
+    <h1> Thermostat set to: <span id="temperature"> </span/></h1>
+    <p>
+      <button id="temperature-up">+</button>
+      <button id="temperature-down">-</button>
+      <button id="temperature-reset">reset</button>
+      power saving mode is <span id="power-saving-status">true</span>
+      <button id="powersaving-switch">PSM switch</button>
+      Energy consumption is <span id="energy-usage">test</span>
+      <!-- <button id="powersaving-off">PSM off</button> -->
+    </p>
   </section>
+</body>
+
+<section>
+  <h1>Current temperature: <span id="current-temperature">20</span></h1>
+  <select id="current-city">
+    <option value="2643741">London</option>
+    <option value="5128638">New York</option>
+    <option value="2988506">Paris</option>
+    <option value="1850147">Tokyo</option>
+  </select>
+</section>
 </html>
 
 <script src="src/thermostat.js"></script>
@@ -48,20 +48,20 @@ $( document ).ready(function() {
   $("#energy-usage").text(t.energyUsage);
 
   $( "#temperature-up" ).on('click', function() {
-      t.up();
-      update();
+    t.up();
+    update();
   });
   $( "#temperature-down" ).on('click', function() {
-      t.down();
-      update();
+    t.down();
+    update();
   });
   $( "#temperature-reset" ).on('click', function() {
-      t.reset();
-      update();
+    t.reset();
+    update();
   });
   $( "#powersaving-switch" ).on('click', function() {
-      t.powerSavingSwitch();
-      $("#power-saving-status").text(t.powerSaving);
+    t.powerSavingSwitch();
+    $("#power-saving-status").text(t.powerSaving);
   });
 
   $('#current-city').change(function() {
